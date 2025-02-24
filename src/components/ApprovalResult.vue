@@ -2,7 +2,6 @@
   <div
     class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-6 mt-4"
   >
-   
     <!-- Error State -->
     <div v-if="error" class="bg-red-50 border border-red-200 rounded p-4">
       <div class="flex items-center">
@@ -86,23 +85,22 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { defineProps } from "vue";
 
 defineProps({
-    loading: {
-        type: Boolean,
-        required: true
-    },
-    error: {
-        type: String,
-        required: false
-    },
-    approvalResult: {
-        type: Object as () => { approved: boolean; approvedAmount: number } | null,
-        required: true
-    }
-})
-
+  loading: {
+    type: Boolean,
+    required: true,
+  },
+  error: {
+    type: String,
+    required: false,
+  },
+  approvalResult: {
+    type: Object as () => { approved: boolean; approvedAmount: number } | null,
+    required: true,
+  },
+});
 
 const formatAmount = (amount: number): string => {
   return new Intl.NumberFormat("en-US", {
